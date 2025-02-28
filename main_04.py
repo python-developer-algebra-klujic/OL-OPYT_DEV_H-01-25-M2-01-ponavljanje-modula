@@ -106,14 +106,17 @@ def main():
                 student = create_student()
                 print(student)
             case 2:
-                student_id = int(input('Upisite ID studenta: '))
-                print_student(student_id=student_id)
+                try:
+                    student_id = int(input('Upisite ID studenta: '))
+                    print_student(student_id=student_id)
+                except Exception as ex:
+                    print(f'Krivo uneseni tip podataka za ID korisnika')
             case _:
                 print('Kriva opcija iz izbornika!')
 
 
         exit_app = input('Zelite li izaci iz aplikacije? (da/ne): ')
-        if exit_app.lower() != 'da':
+        if exit_app.lower() == 'da':
             break
 
 
