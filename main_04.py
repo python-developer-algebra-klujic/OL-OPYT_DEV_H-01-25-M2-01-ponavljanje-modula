@@ -1,13 +1,44 @@
 # Funkcije
-from typing import Dict
+import json
+from typing import Dict, List
 
 
+
+FILE_PATH = 'students.json'
+
+#region Rad s datotekama
+def save_to_file(content: Dict):
+    try:
+        with open(FILE_PATH, 'w') as file_writer:
+            json.dump(content, file_writer, indent=4)
+
+    except Exception as ex:
+        print(f'Dogodila se greska u funkciji "save_to_file(content: Dict)": {ex}')
+
+
+def read_from_file() -> List:
+    try:
+        with open(FILE_PATH, 'r') as file_reader:
+            file_content = json.load(file_reader)
+            return list(file_content)
+
+    except Exception as ex:
+        return []
+        print(f'Dogodila se greska u funkciji "read_from_file()": {ex}')
+
+#endregion
+
+
+
+
+
+#region Rad s zapisima STUDENT
 
 def get_student(student_id: int = -1) -> Dict:
     pass
 
 
-def save_student(student: Dict):
+def save_student(student: Dict) -> Dict:
     '''
     1. Dodati rjecnik u listu i snimiti u datoteku
     2. Dohvatiti zadnji element
@@ -38,3 +69,7 @@ def print_student(student_id: int) -> None:
     # 2.
     pass
 
+#endregion
+
+
+read_from_file()
