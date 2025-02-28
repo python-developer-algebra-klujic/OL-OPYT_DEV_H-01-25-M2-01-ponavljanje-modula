@@ -91,7 +91,35 @@ def print_student(student_id: int) -> None:
 #endregion
 
 
-print('IZBORNIK')
-print('1. Dodaj studenta')
-student = create_student()
-print(student)
+
+def main():
+    while True:
+        print('IZBORNIK')
+        print('1. Dodaj studenta')
+        print('2. Ispisi podatke o studentu ID:?')
+        print()
+        choice = input()
+        print()
+
+        match int(choice):
+            case 1:
+                student = create_student()
+                print(student)
+            case 2:
+                student_id = int(input('Upisite ID studenta: '))
+                print_student(student_id=student_id)
+            case _:
+                print('Kriva opcija iz izbornika!')
+
+
+        exit_app = input('Zelite li izaci iz aplikacije? (da/ne): ')
+        if exit_app.lower() != 'da':
+            break
+
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as ex:
+        print(f'Nije moguce pokrenuti aplikaciju zbog greske: {ex}.')
