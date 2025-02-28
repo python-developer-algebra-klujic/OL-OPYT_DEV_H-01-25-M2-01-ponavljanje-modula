@@ -39,4 +39,3 @@ student_iva['university'] = 'Sveuciliste Rijeka'
 students = []
 students.append(student_pero)
 students.append(student_iva)
-
