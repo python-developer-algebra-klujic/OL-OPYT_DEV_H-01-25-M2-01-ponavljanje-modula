@@ -1,6 +1,7 @@
 # Rad s JSON nacinom zapisa podataka
 import json
 
+
 #region PODACI
 
 # rjecnik student
@@ -33,11 +34,9 @@ students.append(student_iva)
 # Kod za pisanje u datoteku
 try:
     with open('students.json', 'a')as file_writer:
-        # file_writer.write(content)
-        # file_writer.writelines(text)
-        json.dump(student_pero, file_writer)
-        json.dump(student_iva, file_writer)
-        json.dump(students, file_writer)
+        # json.dump(student_pero, file_writer, indent=4)
+        # json.dump(student_iva, file_writer, indent=4)
+        json.dump(students, file_writer, indent=4)
 
 except Exception as ex:
     print(f'Dogodila se greska {ex}')

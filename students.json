@@ -1,0 +1,18 @@
+[
+    {
+        "first_name": "Pero",
+        "last_name": "Peric",
+        "year_of_birth": 1999,
+        "average_grade": 4.89,
+        "is_student": true,
+        "university": "Sveuciliste Rijeka"
+    },
+    {
+        "first_name": "Iva",
+        "last_name": "Ivic",
+        "year_of_birth": 2001,
+        "average_grade": 4.98,
+        "is_student": true,
+        "university": "Sveuciliste Rijeka"
+    }
+]
