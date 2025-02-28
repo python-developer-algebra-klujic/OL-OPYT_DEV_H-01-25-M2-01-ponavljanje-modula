@@ -30,6 +30,7 @@ students.append(student_iva)
 #endregion
 
 
+#region PISANJE U JSON DATOTEKU - JSON.DUMP
 
 # Kod za pisanje u datoteku
 try:
@@ -41,13 +42,21 @@ try:
 except Exception as ex:
     print(f'Dogodila se greska {ex}')
 
+#endregion
+
+
+#region CITANJE IZ JSON DATOTEKU - JSON.LOAD
 
 # Kod za citanje iz datoteke
 try:
-    with open('students.txt', 'r')as file_reader:
-        file_content = file_reader.read()
-        file_content = file_reader.readline()
-        file_content_list = file_reader.readlines()
+    with open('students.json', 'r')as file_reader:
+        # file_content = file_reader.read()
+        # file_content = file_reader.readline()
+        # file_content_list = file_reader.readlines()
+        file_content = json.load(file_reader)
+        print(file_content[1]['average_grade'])
 
 except Exception as ex:
     print(f'Dogodila se greska {ex}')
+
+#endregion
