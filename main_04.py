@@ -7,15 +7,6 @@ from typing import Dict, List
 FILE_PATH = 'students.json'
 
 #region Rad s datotekama
-def save_to_file(content: Dict):
-    try:
-        with open(FILE_PATH, 'w') as file_writer:
-            json.dump(content, file_writer, indent=4)
-
-    except Exception as ex:
-        print(f'Dogodila se greska u funkciji "save_to_file(content: Dict)": {ex}')
-
-
 def read_from_file() -> List:
     try:
         with open(FILE_PATH, 'r') as file_reader:
@@ -23,8 +14,28 @@ def read_from_file() -> List:
             return list(file_content)
 
     except Exception as ex:
-        return []
         print(f'Dogodila se greska u funkciji "read_from_file()": {ex}')
+        return []
+
+
+def save_to_file(content: Dict) -> Dict:
+    # 1. Dohvati sve elemente iz datoteke
+    students = read_from_file()
+    # 2. Dodaj u content podataka pod kljucem ID vrijednost
+    content['id'] = len(students) + 1
+    # 3. Dodaj content u listu
+    students.append(content)
+
+    # 4. Pohrani u datoteku
+    try:
+        with open(FILE_PATH, 'w') as file_writer:
+            json.dump(content, file_writer, indent=4)
+            # 5. Vrati content koji ima ID vrijednost
+            return content
+
+    except Exception as ex:
+        print(f'Dogodila se greska u funkciji "save_to_file(content: Dict)": {ex}')
+        return
 
 #endregion
 
