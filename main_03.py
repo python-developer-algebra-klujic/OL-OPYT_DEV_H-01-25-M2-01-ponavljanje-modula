@@ -33,7 +33,7 @@ students.append(student_iva)
 
 # Kod za pisanje u datoteku
 try:
-    with open('students.json', 'a')as file_writer:
+    with open('students.json', 'w')as file_writer:
         # json.dump(student_pero, file_writer, indent=4)
         # json.dump(student_iva, file_writer, indent=4)
         json.dump(students, file_writer, indent=4)
