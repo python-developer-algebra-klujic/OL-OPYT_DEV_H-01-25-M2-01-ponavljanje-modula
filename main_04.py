@@ -23,13 +23,14 @@ def save_to_file(content: Dict) -> Dict:
     students = read_from_file()
     # 2. Dodaj u content podataka pod kljucem ID vrijednost
     content['id'] = len(students) + 1
+    content['university'] = 'Sveuciliste u Rijeci'
     # 3. Dodaj content u listu
     students.append(content)
 
     # 4. Pohrani u datoteku
     try:
         with open(FILE_PATH, 'w') as file_writer:
-            json.dump(content, file_writer, indent=4)
+            json.dump(students, file_writer, indent=4)
             # 5. Vrati content koji ima ID vrijednost
             return content
 
@@ -38,8 +39,6 @@ def save_to_file(content: Dict) -> Dict:
         return
 
 #endregion
-
-
 
 
 
@@ -66,7 +65,16 @@ def create_student() -> Dict:
     1. Zatraziti od korisnika unos svih svojstava potrebnih za pohranu studenta
     2. Pokrenuti funkciju za snimanje podataka u datoteku
     '''
-    pass
+    # 1. DONE
+    first_name = input('Upisite ime studenta: ')
+    last_name = input('Upisite prezime studenta: ')
+    # 2. DONE
+    student = {
+        'first_name': first_name,
+        'last_name': last_name
+    }
+    student_from_file = save_to_file(student)
+    return student_from_file
 
 
 def print_student(student_id: int) -> None:
@@ -83,4 +91,7 @@ def print_student(student_id: int) -> None:
 #endregion
 
 
-read_from_file()
+print('IZBORNIK')
+print('1. Dodaj studenta')
+student = create_student()
+print(student)

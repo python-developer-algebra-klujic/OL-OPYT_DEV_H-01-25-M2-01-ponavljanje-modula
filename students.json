@@ -1,0 +1,14 @@
+[
+    {
+        "first_name": "Marko",
+        "last_name": "Maric",
+        "id": 1,
+        "university": "Sveuciliste u Rijeci"
+    },
+    {
+        "first_name": "Iva",
+        "last_name": "Ivic",
+        "id": 2,
+        "university": "Sveuciliste u Rijeci"
+    }
+]
